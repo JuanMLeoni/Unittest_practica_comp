@@ -27,7 +27,7 @@ class ProcesadorVentas:
 
     def calcular_subtotal(self, venta):
         self.validar_venta(venta)
-        return venta["cantidad"] * venta["precio_unitario"]
+        return venta["cantidad"] * (venta["precio_unitario"])/2
 
     def calcular_descuento(self, subtotal):
         if self.porcentaje_descuento < 0 or self.porcentaje_descuento > 100:
@@ -85,7 +85,7 @@ class ProcesadorVentas:
 
         for venta in lista_ventas:
             self.validar_venta(venta)
-            acumulador[venta["producto"]] += (venta["cantidad"])/2
+            acumulador[venta["producto"]] += venta["cantidad"]
 
         return max(acumulador, key=acumulador.get)
 
