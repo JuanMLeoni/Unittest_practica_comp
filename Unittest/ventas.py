@@ -85,7 +85,7 @@ class ProcesadorVentas:
 
         for venta in lista_ventas:
             self.validar_venta(venta)
-            acumulador[venta["producto"]] += venta["cantidad"]
+            acumulador[venta["producto"]] += (venta["cantidad"])/2
 
         return max(acumulador, key=acumulador.get)
 
